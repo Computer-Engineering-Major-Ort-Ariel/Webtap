@@ -41,27 +41,27 @@ async function updateStudentSelect() {
 async function updateGradesTable() {
     let studentId = parseInt(studentSelect.value);
     let grades = await send("getGrades", studentId) as Grade[];
-    console.log("grades");
+    console.log(grades);
     gradesTable.innerHTML = "";
-    // for (let grade of grades) {
-    //     let tr = document.createElement("tr");
-    //     gradesTable.appendChild(tr);
+    for (let grade of grades) {
+        let tr = document.createElement("tr");
+        gradesTable.appendChild(tr);
 
-    //     let subjectTd = document.createElement("td");
-    //     tr.appendChild(subjectTd);
+        let subjectTd = document.createElement("td");
+        tr.appendChild(subjectTd);
 
-    //     let subjectNameDiv = document.createElement("div");
-    //     subjectNameDiv.innerText = grade.Subject.Name;
-    //     subjectTd.appendChild(subjectNameDiv);
+        let subjectNameDiv = document.createElement("div");
+        subjectNameDiv.innerText = grade.Subject.Name;
+        subjectTd.appendChild(subjectNameDiv);
 
-    //     let subjectTeacherDiv = document.createElement("div");
-    //     subjectTeacherDiv.innerText = grade.Subject.Teacher;
-    //     subjectTd.appendChild(subjectTeacherDiv);
+        let subjectTeacherDiv = document.createElement("div");
+        subjectTeacherDiv.innerText = grade.Subject.Teacher;
+        subjectTd.appendChild(subjectTeacherDiv);
 
-    //     let ScoreTd = document.createElement("td");
-    //     ScoreTd.innerText = grade.Score.toString();
-    //     tr.appendChild(ScoreTd);
-    // }
+        let ScoreTd = document.createElement("td");
+        ScoreTd.innerText = grade.Score.toString();
+        tr.appendChild(ScoreTd);
+    }
 }
 
 
