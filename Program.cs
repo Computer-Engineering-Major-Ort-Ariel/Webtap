@@ -58,8 +58,8 @@ class Program
       database.Grades.Add(new Grade(91, 5, 3));
 
       database.Grades.Add(new Grade(87, 6, 1));
-      database.Grades.Add(new Grade(80, 6, 1));
-      database.Grades.Add(new Grade(97, 6, 1));
+      database.Grades.Add(new Grade(80, 6, 2));
+      database.Grades.Add(new Grade(97, 6, 3));
 
       database.Grades.Add(new Grade(98, 7, 1));
       database.Grades.Add(new Grade(96, 7, 2));
