@@ -112,6 +112,13 @@ class Program
 
             response.Send(students);
           }
+          if (request.Path == "getGrades")
+          {
+            var studentId = request.GetBody<int>();
+            var grades = database.Grades.Where(grade => grade.StudentId == studentId);
+
+            response.Send(grades);
+          }
           else
           {
             response.SetStatusCode(405);
