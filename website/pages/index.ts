@@ -23,6 +23,8 @@ type Grade = {
 
 let groupSelect = document.querySelector("#groupSelect") as HTMLSelectElement;
 let studentSelect = document.querySelector("#studentSelect") as HTMLSelectElement;
+let gradesTable = document.querySelector("#gradesTable") as HTMLTableElement;
+
 
 async function updateStudentSelect() {
     let groupId = parseInt(groupSelect.value);
@@ -36,6 +38,32 @@ async function updateStudentSelect() {
     }
 };
 
+async function updateGradesTable() {
+    let studentId = parseInt(studentSelect.value);
+    let grades = await send("getGrades", studentId) as Grade[];
+    console.log("grades");
+    gradesTable.innerHTML = "";
+    // for (let grade of grades) {
+    //     let tr = document.createElement("tr");
+    //     gradesTable.appendChild(tr);
+
+    //     let subjectTd = document.createElement("td");
+    //     tr.appendChild(subjectTd);
+
+    //     let subjectNameDiv = document.createElement("div");
+    //     subjectNameDiv.innerText = grade.Subject.Name;
+    //     subjectTd.appendChild(subjectNameDiv);
+
+    //     let subjectTeacherDiv = document.createElement("div");
+    //     subjectTeacherDiv.innerText = grade.Subject.Teacher;
+    //     subjectTd.appendChild(subjectTeacherDiv);
+
+    //     let ScoreTd = document.createElement("td");
+    //     ScoreTd.innerText = grade.Score.toString();
+    //     tr.appendChild(ScoreTd);
+    // }
+}
+
 
 let groups = await send("getGroups", []) as Group[];
 
@@ -48,6 +76,11 @@ for (let group of groups) {
 
 await updateStudentSelect();
 
-groupSelect.onchange = async function () {
+groupSelect.onchange = async function() {
     await updateStudentSelect();
+    await updateGradesTable();
 }
+
+await updateGradesTable();
+
+studentSelect.onchange = updateGradesTable;
