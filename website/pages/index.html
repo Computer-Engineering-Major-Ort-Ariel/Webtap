@@ -3,7 +3,15 @@
 
 <head>
   <style>
-    table, tr, td {
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    table,
+    tr,
+    td {
       border: 1px solid;
       border-collapse: collapse;
       padding: 5px;
@@ -15,15 +23,15 @@
 <body>
   <h1>WebTap</h1>
 
-  <select id="groupSelect">
-  </select>
-  <select id="studentSelect">
-  </select>
+  <div>
+    <select id="groupSelect">
+    </select>
+    <select id="studentSelect">
+    </select>
+  </div>
 
   <br>
   <br>
-
-  <table id="gradesTable"></table>
 
   <script type="module" src="index.js"></script>
 </body>

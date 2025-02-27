@@ -15,13 +15,13 @@ class Program
 
     var database = new Database();
 
-    if (!database.Groups.Any())
+    if (database.IsNewlyCreated())
     {
       database.Subjects.Add(new Subject("Web Development", "Dvir Arazi"));
       database.Subjects.Add(new Subject("C# Fundamentals", "Ofer Shafir"));
       database.Subjects.Add(new Subject("Physics", "Anna Yelkin"));
       database.Subjects.Add(new Subject("English", "Liran Roimi"));
-      
+
       database.Groups.Add(new Group("Class A"));
       database.Groups.Add(new Group("Class B"));
       database.Groups.Add(new Group("Class C"));
@@ -54,7 +54,7 @@ class Program
       database.Grades.Add(new Grade(83, 4, 1));
       database.Grades.Add(new Grade(92, 4, 3));
       database.Grades.Add(new Grade(84, 4, 4));
-      
+
       database.Grades.Add(new Grade(91, 5, 3));
 
       database.Grades.Add(new Grade(87, 6, 1));
@@ -64,12 +64,12 @@ class Program
       database.Grades.Add(new Grade(98, 7, 1));
       database.Grades.Add(new Grade(96, 7, 2));
       database.Grades.Add(new Grade(84, 7, 4));
-      
+
       database.Grades.Add(new Grade(85, 8, 1));
       database.Grades.Add(new Grade(95, 8, 2));
-      
+
       database.Grades.Add(new Grade(87, 9, 2));
-      
+
       database.Grades.Add(new Grade(98, 10, 1));
       database.Grades.Add(new Grade(90, 10, 2));
       database.Grades.Add(new Grade(89, 10, 3));
